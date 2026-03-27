@@ -92,25 +92,25 @@ export default function HeroSlider() {
                 <div className="absolute top-1/2 right-[25%] -translate-y-1/2 w-[300px] h-[300px] rounded-full border-[30px] border-white/15 -rotate-45" />
               </div>
 
-              <div className="relative max-w-[1600px] mx-auto px-16 h-full flex flex-col justify-center">
-                <div className="inline-flex items-center gap-2 mb-4">
+              <div className="relative max-w-[1600px] mx-auto px-6 md:px-16 h-full flex flex-col justify-center">
+                <div className="inline-flex items-center gap-2 mb-3 md:mb-4">
                   <span
-                    className="px-3 py-1 text-xs font-bold text-white rounded-full"
+                    className="px-2.5 py-0.5 text-[10px] md:text-xs font-bold text-white rounded-full"
                     style={{ backgroundColor: slide.accent }}
                   >
                     {slide.stat}
                   </span>
                 </div>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-3 tracking-tight">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white mb-2 md:mb-3 tracking-tight">
                   {slide.headline}
                 </h2>
-                <p className="text-lg md:text-xl text-white/60 mb-6 max-w-2xl leading-relaxed">
+                <p className="text-sm sm:text-base md:text-xl text-white/60 mb-4 md:mb-6 max-w-2xl leading-relaxed">
                   {slide.subtitle}
                 </p>
                 <div>
                   <a
                     href={slide.ctaLink}
-                    className="inline-block px-8 py-3 rounded-md text-base font-bold text-white transition-transform hover:scale-105 active:scale-95"
+                    className="inline-block px-5 py-2 md:px-8 md:py-3 rounded-md text-xs md:text-base font-bold text-white transition-transform hover:scale-105 active:scale-95"
                     style={{ backgroundColor: slide.accent }}
                   >
                     {slide.cta}
