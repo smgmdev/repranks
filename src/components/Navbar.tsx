@@ -109,14 +109,6 @@ export default function Navbar({ active }: { active?: string }) {
 
           {/* Mobile right side */}
           <div className="ml-auto lg:hidden flex items-center gap-3">
-            {!user && (
-              <button
-                onClick={() => { setAuthMode("login"); setShowAuth(true); }}
-                className="px-5 py-2 text-xs font-bold tracking-wider text-white bg-[#3b6ee6] hover:bg-[#4a7cf0] rounded-lg transition-colors"
-              >
-                Sign In
-              </button>
-            )}
             {user && (
               <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
                 {(user.name || user.email || "U").charAt(0).toUpperCase()}
