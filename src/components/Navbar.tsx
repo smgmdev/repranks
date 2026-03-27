@@ -64,7 +64,7 @@ export default function Navbar({ active }: { active?: string }) {
           </Link>
 
           {/* Center nav links — desktop */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-8">
             {links.map((link) => (
               <Link
                 key={link.label}
@@ -84,7 +84,7 @@ export default function Navbar({ active }: { active?: string }) {
           </div>
 
           {/* Right side — desktop */}
-          <div className="ml-auto hidden md:flex items-center gap-4">
+          <div className="ml-auto hidden lg:flex items-center gap-4">
             {user ? (
               <>
                 <div className="flex items-center gap-2 text-sm">
@@ -110,7 +110,7 @@ export default function Navbar({ active }: { active?: string }) {
           {/* Burger menu — mobile */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="ml-auto md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5"
+            className="ml-auto lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5"
           >
             <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
             <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
@@ -120,7 +120,7 @@ export default function Navbar({ active }: { active?: string }) {
 
         {/* Mobile menu */}
         <div
-          className={`md:hidden fixed inset-0 top-16 bg-[#0a0a0a] z-40 transition-transform duration-300 ${
+          className={`lg:hidden fixed inset-0 top-16 bg-[#0a0a0a] z-40 transition-transform duration-300 ${
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
