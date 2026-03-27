@@ -95,7 +95,7 @@ export default function ArticleCards() {
   return (
     <section className="bg-[#0d1117] px-6 py-12">
       <div className="max-w-[1600px] mx-auto">
-        <h2 className="text-white text-2xl font-bold mb-6">Recommended</h2>
+        <h2 className="text-white text-2xl font-bold mb-6">Latest</h2>
         <div className="flex lg:grid lg:grid-cols-5 gap-5 overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory pb-4 lg:pb-0 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {articles.slice(0, 5).map((article, i) => (
             <div

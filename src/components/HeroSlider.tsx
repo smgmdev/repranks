@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 const slides = [
   {
@@ -63,6 +63,25 @@ export default function HeroSlider() {
     []
   );
 
+  // Touch swipe
+  const touchStart = useRef(0);
+  const touchEnd = useRef(0);
+
+  function handleTouchStart(e: React.TouchEvent) {
+    touchStart.current = e.touches[0].clientX;
+    touchEnd.current = e.touches[0].clientX;
+  }
+  function handleTouchMove(e: React.TouchEvent) {
+    touchEnd.current = e.touches[0].clientX;
+  }
+  function handleTouchEnd() {
+    const diff = touchStart.current - touchEnd.current;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) next();
+      else prev();
+    }
+  }
+
   useEffect(() => {
     if (paused) return;
     const id = setInterval(next, 5000);
@@ -70,7 +89,12 @@ export default function HeroSlider() {
   }, [paused, next]);
 
   return (
-    <div className="relative bg-[#0d1117] select-none">
+    <div
+      className="relative bg-[#0d1117] select-none"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       {/* Slide track — all slides in a row, translate the whole strip */}
       <div className="overflow-hidden">
         <div
@@ -125,7 +149,7 @@ export default function HeroSlider() {
       {/* Left arrow */}
       <button
         onClick={prev}
-        className="absolute left-3 top-[calc(50%-20px)] -translate-y-1/2 z-10 w-10 h-14 bg-black/50 hover:bg-black/70 rounded flex items-center justify-center transition-colors"
+        className="absolute left-3 top-[calc(50%-20px)] -translate-y-1/2 z-10 w-10 h-14 bg-black/50 hover:bg-black/70 rounded hidden md:flex items-center justify-center transition-colors"
       >
         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
@@ -135,7 +159,7 @@ export default function HeroSlider() {
       {/* Right arrow */}
       <button
         onClick={next}
-        className="absolute right-3 top-[calc(50%-20px)] -translate-y-1/2 z-10 w-10 h-14 bg-black/50 hover:bg-black/70 rounded flex items-center justify-center transition-colors"
+        className="absolute right-3 top-[calc(50%-20px)] -translate-y-1/2 z-10 w-10 h-14 bg-black/50 hover:bg-black/70 rounded hidden md:flex items-center justify-center transition-colors"
       >
         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
