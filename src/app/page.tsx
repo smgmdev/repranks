@@ -5,6 +5,7 @@ import ArticleCards from "@/components/ArticleCards";
 import PromotedSpotlight from "@/components/PromotedSpotlight";
 import ReputationTable from "@/components/ReputationTable";
 import Footer from "@/components/Footer";
+import HowItWorks from "@/components/HowItWorks";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         </p>
         <ReputationTable />
       </section>
+      <HowItWorks />
       <Footer />
     </main>
   );
